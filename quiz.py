@@ -1,5 +1,5 @@
 import csv
-
+import types
 
 
 def load_questions(filename):
@@ -22,5 +22,14 @@ def print_question(question):
     print("Here are your Options: :)")
     print(" / ".join(f"{i}. {opt}" for i, opt in enumerate(question['answers'], start=1)))
     Option_chosen=input()
+
+    while not Option_chosen.isdigit():
+        Option_chosen = input("Please try again!")
+
+    Option_chosen = int(Option_chosen)
+
+
 for x in questions:
     print_question(x)
+
+
