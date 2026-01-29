@@ -1,6 +1,5 @@
 import csv
 import types
-score=0
 
 def load_questions(filename):
     questions = []
@@ -12,7 +11,6 @@ def load_questions(filename):
             line['answers'] = line['answers'].split(';')
             questions.append(line)
     return questions
-questions = load_questions('quiz_questions.csv')
 
 def print_question(question):
     print("Category:    " + question['category'])
@@ -32,7 +30,16 @@ def print_question(question):
         print("WHOMP, WHOMP, to bad!")
         return -1
 
-for x in questions:
-    print_question(x)
+def run_quiz(questions):
+    score = 0
+    print("Hello User welcome to Quiz game 2.o")
+    print("May I Have Your Name?")
+    name=input()
+    print(f"Nice to meet you {name} :)")
+    for x in questions:
+        score=score+print_question(x)
+    print(f"In total you got a score of: ({score}) congrats!")
+    print(f"SEE YOU NEXT TIME {name}!!!!!!!!!!!!!!!!!!!")
 
-
+questions = load_questions('quiz_questions.csv')
+run_quiz(questions)
