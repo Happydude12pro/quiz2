@@ -1,4 +1,7 @@
 import csv
+
+
+
 def load_questions(filename):
     questions = []
     with open(filename, 'r') as csv_file:
@@ -14,8 +17,10 @@ def load_questions(filename):
 questions = load_questions('quiz_questions.csv')
 
 def print_question(question):
-    print(question['category'], question['question'], question['answers'])
-
-
+    print("Category:    " + question['category'])
+    print("Question:    " + question['question'])
+    print("Here are your Options: :)")
+    print(" / ".join(f"{i}. {opt}" for i, opt in enumerate(question['answers'], start=1)))
+    Option_chosen=input()
 for x in questions:
     print_question(x)
