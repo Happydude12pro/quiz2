@@ -11,6 +11,11 @@ def load_questions(filename):
     return questions
 
 
-load_questions('quiz_questions.csv')
+questions = load_questions('quiz_questions.csv')
+
+def print_question(question):
+    print(question['category'], question['question'], question['answers'])
 
 
+for x in questions:
+    print_question(x)
